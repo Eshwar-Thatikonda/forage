@@ -1,99 +1,144 @@
-# Telemetry Data Format Converter
+# 🚀 Telemetry Data Format Converter
 
-## 📌 Project Overview
+## 📌 Overview
 
-This project converts telemetry data from two different JSON formats into a unified standard format.
+A Python-based data normalization system that converts telemetry data from multiple heterogeneous JSON formats into a unified, structured format.
 
-The system ensures that data from different sources can be processed consistently.
-
----
-
-## 📂 Project Files
-
-* `data-1.json` → Input Format 1
-* `data-2.json` → Input Format 2
-* `data-result.json` → Expected unified output
-* `main.py` → Conversion logic and unit tests
+This project simulates real-world data engineering challenges where data arrives in inconsistent schemas and must be standardized for downstream processing.
 
 ---
 
-## 🔄 Input Formats
+## 🎯 Problem Statement
 
-### Format 1
+Different telemetry sources produce data in varying formats:
 
-* Contains flat structure
-* Location stored as a single string ("/" separated)
+* Flat vs nested JSON structures
+* Different timestamp formats (epoch vs ISO 8601)
+* Inconsistent location representation
 
-### Format 2
-
-* Nested structure
-* Timestamp in ISO 8601 format
-* Location fields separated
+This project solves the problem by transforming all inputs into a single consistent schema.
 
 ---
 
-## 🎯 Output Format
+## 🧠 Key Features
 
-Both formats are converted into:
-
-* Standard device details
-* Structured location object
-* Unified data object
-* Timestamp in milliseconds (epoch)
+* 🔄 Multi-format JSON handling
+* ⏱️ ISO 8601 → Epoch timestamp conversion (milliseconds)
+* 📍 Structured location parsing
+* 🧪 Automated unit testing using `unittest`
+* ⚡ Clean and modular Python implementation
 
 ---
 
-## ⚙️ Implementation Details
+## 🏗️ Project Structure
 
-Two functions are implemented:
+```
+├── data-1.json        # Input Format 1 (flat structure)
+├── data-2.json        # Input Format 2 (nested structure)
+├── data-result.json   # Expected unified output
+├── main.py            # Core logic + unit tests
+```
 
-* `convertFromFormat1(jsonObject)`
-* `convertFromFormat2(jsonObject)`
+---
 
-### Key Logic:
+## 🔄 Data Transformation Logic
 
-* Splitting location string into components
-* Converting ISO timestamp → milliseconds
-* Mapping fields to unified structure
+### ✅ Format 1 → Unified Format
+
+* Splits location string into structured fields
+* Maps:
+
+  * `operationStatus → status`
+  * `temp → temperature`
+
+### ✅ Format 2 → Unified Format
+
+* Extracts nested device information
+* Converts ISO timestamp → milliseconds since epoch
+* Direct mapping of structured location fields
+
+---
+
+## 🧪 Testing
+
+This project uses Python's built-in `unittest` framework.
+
+### ✔ Test Coverage:
+
+* Format 1 conversion
+* Format 2 conversion
+* Output validation against expected result
 
 ---
 
 ## ▶️ How to Run
 
-Make sure Python 3 is installed.
+### 🔧 Prerequisites
 
-Run the following command:
+* Python 3.x
+
+### ▶ Run the project:
 
 ```bash
 python main.py
 ```
 
----
+### ✅ Expected Output:
 
-## ✅ Testing
+All test cases should pass:
 
-* Unit tests are included using `unittest`
-* Tests verify both formats produce correct output
-* Successful run = all tests passed
-
----
-
-## ⚠️ Notes
-
-* Timestamp conversion is handled using `datetime`
-* Ensure correct ISO format parsing
-* Focus on test results (ignore extra console output)
+```
+OK
+```
 
 ---
 
-## 🚀 Future Improvements
+## ⚙️ Technologies Used
 
-* Add support for more formats
-* Add error handling
-* Convert into API using Flask
+* Python 3
+* JSON Processing
+* datetime module
+* unittest framework
+
+---
+
+## 💡 Key Concepts Demonstrated
+
+* Data normalization
+* Schema transformation
+* Timestamp conversion
+* Test-driven validation
+* Clean code practices
+
+---
+
+## 🚀 Future Enhancements
+
+* Add support for additional telemetry formats
+* Build REST API using Flask/Django
+* Integrate with real-time data pipelines (Kafka)
+* Add logging & error handling
+
+---
+
+## 📌 Real-World Applications
+
+* IoT data processing systems
+* Data engineering pipelines
+* ETL (Extract, Transform, Load) workflows
+* Monitoring and analytics platforms
 
 ---
 
 ## 👨‍💻 Author
 
-Eshwar Thatikonda
+**Eshwar Thatikonda**
+
+* Passionate about Data Engineering & Backend Development
+* Skilled in Python, Machine Learning, and System Design
+
+---
+
+## ⭐ If you like this project
+
+Give it a ⭐ on GitHub!
